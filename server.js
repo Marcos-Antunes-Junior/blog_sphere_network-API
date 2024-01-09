@@ -7,6 +7,7 @@ const env = require("dotenv");
 const db = require("./models");
 const session = require("express-session");
 const cors = require('cors');
+const static = require('./routes/static')
 
 const port = process.env.PORT;
 
@@ -34,6 +35,9 @@ app.use(cors({
   methods: "GET, POST, PUT, DELETE",
   credentials: true,
 }));
+
+/* Serve profile pictures */
+app.use(static);
 
 /* ROUTES */
 app.use("/", require("./routes"));

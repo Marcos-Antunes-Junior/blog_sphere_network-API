@@ -1,23 +1,26 @@
 module.exports = (mongoose) => {
   const { ObjectId } = mongoose.Schema.Types;
-  const GoogleUser = mongoose.model(
-    "google_users",
+  const Users = mongoose.model(
+    "users",
     mongoose.Schema({
       _id: { type: ObjectId, auto: true },
-      username: {
+      name: {
         type: String,
         required: true,
       },
-      googleId: {
+      email: {
+        type: String,
+        required: true,
+      },
+      password: {
         type: String,
         required: true,
       },
       picture: {
-       type: String,
-       required: true,
+        type: String,
+        required: true,
       },
     })
   );
-
-  return GoogleUser;
+  return Users;
 };
